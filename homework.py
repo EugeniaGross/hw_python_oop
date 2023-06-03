@@ -72,9 +72,9 @@ class Running(Training):
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         calories: float = ((self.CALORIES_MEAN_SPEED_MULTIPLIER
-                     * self.get_mean_speed()
-                     + self.CALORIES_MEAN_SPEED_SHIFT) * self.weight
-                    / self.M_IN_KM * self.duration * self.IN_MIN)
+                            * self.get_mean_speed()
+                            + self.CALORIES_MEAN_SPEED_SHIFT) * self.weight
+                           / self.M_IN_KM * self.duration * self.IN_MIN)
         return calories
 
 
@@ -97,11 +97,11 @@ class SportsWalking(Training):
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         calories: float = ((self.CALORIES_WEIGHT_MULTIPLIER
-                     * self.weight
-                     + ((self.get_mean_speed() * self.IN_SEC)
-                        ** 2 / (self.height / self.IN_METR))
-                    * self.CALORIES_MULTIPLIER * self.weight)
-                    * self.duration * self.IN_MIN)
+                            * self.weight
+                            + ((self.get_mean_speed() * self.IN_SEC)
+                               ** 2 / (self.height / self.IN_METR))
+                            * self.CALORIES_MULTIPLIER * self.weight)
+                           * self.duration * self.IN_MIN)
         return calories
 
 
@@ -125,15 +125,15 @@ class Swimming(Training):
     def get_mean_speed(self) -> float:
         """Получить среднюю скорость движения."""
         mean_speed: float = (self.length_pool * self.count_pool
-                      / self.M_IN_KM / self.duration)
+                             / self.M_IN_KM / self.duration)
         return mean_speed
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         calories: float = ((self.get_mean_speed()
-                    + self.CALORIES_MEAN_SPEED_SHIFT)
-                    * self.MULTIPLIER * self.weight
-                    * self.duration)
+                            + self.CALORIES_MEAN_SPEED_SHIFT)
+                           * self.MULTIPLIER * self.weight
+                           * self.duration)
         return calories
 
 
